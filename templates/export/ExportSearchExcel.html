@@ -1,0 +1,57 @@
+<table border="1">
+	<tr>
+		<td>Message ID</td>
+		<td>Time</td>
+		<td>Message Code</td>
+		<td>Port ID</td>
+		<td>Submission ID</td>
+		<td>Donor ID</td>
+		<td>Recipient ID</td>
+		<td>Phone Number</td>
+		<td>Service Type</td>
+		<td>SIM #</td>
+		<td>CPR</td>
+		<td>Passport Number</td>
+		<td>Company Flag</td>
+		<td>Commercial Registration Number</td>
+		<td>Porting Date Time</td>
+		<td>Subscription Network ID</td>
+		<td>New Route</td>
+		<td>Block ID</td>
+		<td>Error Code</td>
+		<td>Reject Code</td>
+		<td>Rejected Message Code</td>
+		<td>Comment</td>
+		<td>Origination ID</td>
+		<td>Destination ID</td>
+		<td>Message Direction</td>
+	</tr>
+{% for row in data %}
+	<tr>
+		<td>{% if row.message_id != None %}{{ row.message_id }}{% endif %}</td>
+		<td>{% if row.time_stamp != None %}{{ row.time_stamp }}{% endif %}</td>
+		<td>{% if row.message_code != None %}{{ row.message_code }}{% endif %}</td>
+		<td>{% if row.port_id != None %}{{ row.port_id }}{% endif %}</td>
+		<td>{% if row.submission_id != None %}{{ row.submission_id }}{% endif %}</td>
+		<td>{% if row.donor_id != None %}{{ row.donor_id }}{% endif %}</td>
+		<td>{% if row.recipient_id != None %}{{ row.recipient_id }}{% endif %}</td>
+		<td>{% if row.number != None %}{{ row.number }}{% endif %}</td>
+		<td>{% if row.service_type != None %}{{ row.service_type }}{% endif %}</td>
+		<td>{% if row.sim_card_number != None %}{{ row.sim_card_number }}{% endif %}</td>
+		<td>{% if row.cpr != None %}{{ row.cpr }}{% endif %}</td>
+		<td>{% if row.passport_number != None %}{{ row.passport_number }}{% endif %}</td>
+		<td>{% if row.company_flag != None %}{{ row.company_flag }}{% endif %}</td>
+		<td>{% if row.commercial_reg_number != None %}{{ row.commercial_reg_number }}{% endif %}</td>
+		<td>{% if row.porting_date_time != None %}{{ row.porting_date_time }}{% endif %}</td>
+		<td>{% if row.subscription_network_id != None %}{{ row.subscription_network_id }}{% endif %}</td>
+		<td>{% if row.new_route != None %}{{ row.new_route }}{% endif %}</td>
+		<td>{% if row.block_id != None %}{{ row.block_id }}{% endif %}</td>
+		<td>{% if row.error_code != None %}{{ row.error_code }}{% endif %}</td>
+		<td>{% if row.reject_code != None %}{{ row.reject_code }}{% endif %}</td>
+		<td>{% if row.rejected_message_code != None %}{{ row.rejected_message_code }}{% endif %}</td>
+		<td>{% if row.comments != None %}{{ row.comments }}{% endif %}</td>
+		<td>{% if row.origination_id != None %}{{ row.origination_id }}{% endif %}</td>
+		<td>{% if row.destination_id != None %}{{ row.destination_id }}{% endif %}</td>
+		<td>{% if row.direction != None %}{{ row.direction }}{% endif %}</td>
+	</tr>
+{% endfor %}

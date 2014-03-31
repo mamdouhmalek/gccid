@@ -1,0 +1,160 @@
+<!doctype html>
+{% extends "web/header.html" %}
+
+{% block title %}Mediation Device - Message Detail{% endblock %}
+{% block script %}
+{% endblock %}
+{% block content %}
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" width="800" cellpadding="5">
+{% if message_list.message_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Message #</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.message_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.time_stamp != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Time Stamp</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.time_stamp }}</td>
+	</tr>
+{% endif %}
+{% if message_list.message_code != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Message Code</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.message_code }}</td>
+	</tr>
+{% endif %}
+{% if message_list.port_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Port ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.port_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.submission_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Submission ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.submission_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.number != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Phone Number</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.number }}</td>
+	</tr>
+{% endif %}
+{% if message_list.service_type != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Service Type</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.service_type }}</td>
+	</tr>
+{% endif %}
+{% if message_list.donor_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Donor ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.donor_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.recipient_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Recipient ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.recipient_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.sim_card_number != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">SIM #</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.sim_card_number }}</td>
+	</tr>
+{% endif %}
+{% if message_list.cpr != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">CPR #</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.cpr }}</td>
+	</tr>
+{% endif %}
+{% if message_list.passport_number != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Passport #</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.passport_number }}</td>
+	</tr>
+{% endif %}
+{% if message_list.company_flag != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Company Flag</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.company_flag }}</td>
+	</tr>
+{% endif %}
+{% if message_list.commercial_reg_number != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Commercial #</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.commercial_reg_number }}</td>
+	</tr>
+{% endif %}
+{% if message_list.reject_code != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Reject Code</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.reject_code }}</td>
+	</tr>
+{% endif %}
+{% if message_list.subscription_network_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Subscription Network ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.subscription_network_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.block_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Block ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.block_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.new_route != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">New Route</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.new_route }}</td>
+	</tr>
+{% endif %}
+{% if message_list.porting_date_time != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Porting Time</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.porting_date_time }}</td>
+	</tr>
+{% endif %}
+{% if message_list.error_code != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Error Code</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.error_code }}</td>
+	</tr>
+{% endif %}
+{% if message_list.rejected_message_code != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Rejected Message Code</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.rejected_message_code }}</td>
+	</tr>
+{% endif %}
+{% if message_list.comments != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Comments</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.comments }}</td>
+	</tr>
+{% endif %}
+{% if message_list.origination_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Origination ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.origination_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.destination_id != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Destination ID</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.destination_id }}</td>
+	</tr>
+{% endif %}
+{% if message_list.direction != None %}
+	<tr>
+		<td height="5" bgcolor="#6E6E6E">Direction</td>
+		<td height="5" bordercolor="#FFFFFF" bgcolor="#F0F0F0">{{ message_list.direction }}</td>
+	</tr>
+{% endif %}
+</table>
+{% endblock %}

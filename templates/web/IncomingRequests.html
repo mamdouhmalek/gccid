@@ -1,0 +1,209 @@
+<!doctype html>
+{% extends "web/header.html" %}
+
+{% block title %}NPG - Received Request{% endblock %}
+
+
+{% block script %}
+		function onSelect(objSelect){
+			if (objSelect.value=="Y") {
+				document.getElementById("otherOpt").style.display='block'; // Show Options
+			}else{
+				document.getElementById("otherOpt").style.display='none'; // hide Options
+			}
+		}
+		function onSelect2(objSelect){
+			if (objSelect.value=="1") {
+				document.getElementById("otherOpt1").style.display='block'; // Show Options
+			}else{
+				document.getElementById("otherOpt1").style.display='none'; // hide Options
+			}
+		}
+
+{% if message_list %}
+	{% for message in message_list %}
+		function confAccept{{ message.message_id }}(form) {
+            if (confirm("Are you sure you want to Accept order #{{ message.message_id }}\nPhone #: {{ message.number }}")) {
+                form.submit();
+            }
+        }
+        function confReject{{ message.message_id }}(form) {
+            if (confirm("Are you sure you want to Reject order #{{ message.message_id }}\nPhone #: {{ message.number }}")) {
+                form.submit();
+            }
+        }
+	{% endfor %}
+{% endif %}
+{% endblock %}
+{% block content %}
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" width="800" bordercolor="#000066" cellpadding="5">
+{% if reply_list %}
+	<tr>
+		<td colspan="6" bgcolor="#6E6E6E" height="45" width="100%" bordercolor="#FFFFFF">
+			<p align="center">
+			<font face='Candara' size=4 color='#FFFFFF'>
+				<b>Results</b>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="6" bgcolor="{{ back_color }}" height="45" width="100%" bordercolor="#FFFFFF">
+			{% for key,value in reply_list.items %}
+				<div align="left" width="30px;" style="font-weight: normal; font-family: Candara; font-size: 12px;">
+					<b>{{ key }}:</b> {{ value }}
+				</div>
+			{% endfor %}
+		</td>
+	</tr>
+{% endif %}
+
+<tr>
+	<td colspan="6" bgcolor="#6E6E6E" height="45" width="100%" bordercolor="#FFFFFF">
+		<p align="center"><b>
+		<font face='Candara' size=4 color='#FFFFFF'><b>
+			Received Request
+			&nbsp;
+			</font></p>
+		<font face='Candara' size="2" color="#000066"> </font></b>
+	</td>
+</tr>
+
+
+{% if message_list %}
+	{% for message in message_list %}
+<tr>
+	<td colspan="6" bgcolor="#E0E0E0" align="center" height="16" width="100%" bordercolor="#FFFFFF">
+		<form enctype='multipart/form-data' action='/request/accept/' method='post'>
+			<font size="3" color="black" face='Candara'>Message # {{ message.message_id }} - <font size="3" color="red" face='Candara'>{{ message.message_code }}</font> - <b>{{ message.number }}</b></font>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="hidden" name="message_id" value="{{ message.message_id }}" id="message_id" />
+			<input name='NpRequestAccept-{{ message.message_id }}' type="button" onClick="confAccept{{ message.message_id }}(this.form);" value="     Accept     ">
+		</form>
+
+	</td>
+</tr>
+
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Time Received:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.time_stamp }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>SIM #:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.sim_card_number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Provider:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.donor_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Company Flag:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.company_flag }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Port ID:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.port_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>CPR #:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.cpr }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Recipient ID</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.recipient_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Passport Number:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.passport_number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Submission ID:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.submission_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Phone #:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>{{ message.number }}</b></font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Comments:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.comments }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>CR Number:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.commercial_reg_number }}</font>
+		</td>
+	</tr>
+<tr>
+<tr>
+	<td colspan="4" bgcolor="#E0E0E0" align="center" height="16" width="5" bordercolor="#FFFFFF">
+	<form enctype='multipart/form-data' action='/request/reject/' method='post'>
+			<font size="3" color="red" face='Candara'>
+			<select id="reject_code" class="value" name="reject_code" title="The Reject Code indicates the reason the Request is rejected.">
+				<option value="REJ0007">REJ0007 - Company Flag has unexpected value</option>
+				<option value="REJ0008">REJ0008 - Number is not active or in service</option>
+				<option value="REJ0009">REJ0009 - Subscriber has Bad Debt</option>
+				<option value="REJ0010">REJ0010 - SIM_CARD_NUMBER does not match the SIM chip assigned to the Number</option>
+				<option value="REJ0011">REJ0011 - CPR required for validation (Donor Subscription details include a CPR number)</option>
+				<option value="REJ0013">REJ0013 - CPR number does not match the requested Porting Number?s Subscriber details</option>
+				<option value="REJ0014">REJ0014 - PASSPORT_NUMBER does not match the requested Porting Number?s Subscriber details</option>
+				<option value="REJ0015">REJ0015 - PASSPORT_NUMBER required for validation (Donor Subscription details include a Passport Number)</option>
+				<option value="REJ0017">REJ0017 - COMMERCIAL_REG_NUMBER does not match the requested Porting Number's Subscriber details</option>
+				<option value="REJ0098">REJ0098 - Rejection by Central System was expected</option>
+				<option value="REJ0099">REJ0099 - Other</option>
+			</select>
+			<textarea maxlength="100" class="value" name="comments" rows="3" cols="2000" id="comments" value="" title="Text field for optional additional information" style="width: 600px;"></textarea><br>
+			<input type="hidden" name="message_id" value="{{ message.message_id }}" id="message_id" />
+			<input name='NpRequestReject-{{ message.message_id }}' type="button" onClick="confReject{{ message.message_id }}(this.form);" value="     Reject     ">
+		</font>
+		</form>
+	</td>
+</tr>
+<tr>
+	<td colspan="6" bgcolor="#0630A1" height="3" width="100%" bordercolor="#FFFFFF">
+	</td>
+</tr>
+{% endfor %}
+{% else %}
+<tr>
+	<td colspan="6" bgcolor="#E0E0E0" height="16" width="100%" bordercolor="#EFF3F7">
+		<p align="center"><font size="3" color="black" face='Candara'>No incoming request</font></p>
+	</td>
+</tr>
+
+{% endif %}
+</table>
+{% endblock %}

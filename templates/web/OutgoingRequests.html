@@ -1,0 +1,201 @@
+<!doctype html>
+{% extends "web/header.html" %}
+
+{% block title %}NPG - Sent Request{% endblock %}
+
+
+{% block script %}
+		function onSelect(objSelect){
+			if (objSelect.value=="Y") {
+				document.getElementById("otherOpt").style.display='block'; // Show Options
+			}else{
+				document.getElementById("otherOpt").style.display='none'; // hide Options
+			}
+		}
+		function onSelect2(objSelect){
+			if (objSelect.value=="1") {
+				document.getElementById("otherOpt1").style.display='block'; // Show Options
+			}else{
+				document.getElementById("otherOpt1").style.display='none'; // hide Options
+			}
+		}
+{% if message_list %}
+	{% for message in message_list %}
+		function confSubmit{{ message.message_id }}(form) {
+            if (confirm("Are you sure you want to Cancel order #{{ message.message_id }}\nPhone #: \b{{ message.number }}")) {
+                form.submit();
+            }
+        }
+	{% endfor %}
+{% endif %}
+
+	</script>
+	<script src="jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery.fn.preventDoubleSubmit = function() {
+			jQuery(this).submit(function() {
+				if (this.beenSubmitted)
+					return false;
+				else
+					this.beenSubmitted = true;
+				});
+			};
+		jQuery('#CancelButton').preventDoubleSubmit();
+		</script>
+{% endblock %}
+{% block content %}
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" bordercolor="#000066" width="800" cellpadding="5">
+<tr>
+	<td colspan="6" bgcolor="#6E6E6E" height="45" width="100%" bordercolor="#FFFFFF">
+		<p align="center"><b>
+		<font face='Candara' size=4 color='#FFFFFF'><b>
+			Sent Request
+			&nbsp;
+			</font></p>
+		<font face='Candara' size="3" color="#000066"> </font></b>
+	</td>
+</tr>
+{% if reply_list %}
+	<tr>
+		<td colspan="6" bgcolor="#6E6E6E" height="45" width="100%" bordercolor="#FFFFFF">
+			<p align="center">
+			<font face='Candara' size=4 color='#FFFFFF'>
+				<b>Results</b>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="6" bgcolor="{{ back_color }}" height="45" width="100%" bordercolor="#FFFFFF">
+			{% for key,value in reply_list.items %}
+				<div align="left" width="30px;" style="font-weight: normal; font-family: Candara; font-size: 12px;">
+					<b>{{ key }}:</b> {{ value }}
+				</div>
+			{% endfor %}
+		</td>
+	</tr>
+{% endif %}
+{% if message_list %}
+{% for message in message_list %}
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript"></script>
+			<script type="text/javascript">
+				jQuery.fn.preventDoubleSubmit = function() {
+					jQuery(this).submit(function() {
+						if (this.beenSubmitted)
+							return false;
+						else
+							this.beenSubmitted = true;
+						});
+					};
+				jQuery('#CancelButton').preventDoubleSubmit();
+			</script>
+<tr>
+	<form enctype='multipart/form-data' id='CancelButton' name='CancelButton' action='/request/cancel/' method='post'>		
+		<td colspan="6" align="center" bgcolor="#E0E0E0" height="10" width="" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>Message # {{ message.message_id }} - {{ message.message_code }} - {{ message.number }}</font>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="hidden" name="message_id" value="{{ message.message_id }}" id="message_id" />
+			<input name='NpRequestAccept-{{ message.message_id }}' id="CancelButton" type="button" onClick="confSubmit{{ message.message_id }}(this.form);" value="     Cancel     ">
+		</td>
+	</form>
+</tr>
+
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Time Received:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.time_stamp }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>SIM #:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.sim_card_number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Provider:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.donor_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Company Flag:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.company_flag }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Port ID:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.port_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>CPR #:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.cpr }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Recipient ID</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.recipient_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Passport Number:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.passport_number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Submission ID:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.submission_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Phone #:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>Comments:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.comments }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'><b>CR Number:</font>
+		</td>
+		<td bgcolor="#FFFFFF">
+			<font size="3" color="black" face='Candara'>{{ message.commercial_reg_number }}</font>
+		</td>
+	</tr>
+<tr>
+<tr>
+	<td colspan="6" bgcolor="#0630A1" height="3" width="100%" bordercolor="#FFFFFF">
+	</td>
+</tr>
+{% endfor %}
+{% else %}
+<tr>
+	<td colspan="6" bgcolor="#E0E0E0" height="16" width="100%" bordercolor="#FFFFFF">
+		<p align="center"><font size="3" color="black" face='Candara'>No outgoing request</font></p>
+	</td>
+</tr>
+
+{% endif %}
+</table>
+{% endblock %}

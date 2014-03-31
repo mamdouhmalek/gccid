@@ -1,0 +1,209 @@
+<!doctype html>
+	<head>
+		<title>Reports</title>
+		<script type="text/javascript">
+			<script src="http://81.22.20.83:9999/scripts/validate" type="text/javascript"></script>
+
+		</script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".slidingDiv").hide();
+				$(".show_hide").show();
+		
+				$('.show_hide').click(function(){
+					$(".slidingDiv").slideToggle();
+				});
+			});
+		</script>
+	</head>
+	<style type="text/css">
+		#nav {
+			margin:0;
+			padding:0;
+			width: 600;
+			margin: 20px 20px 0 0;
+			list-style-type:none;
+ 		}
+		#nav a {
+			background-repeat: no-repeat;
+			background-image: url(/media/Button_G_R_off.png);
+			z-index: 0;
+			display:block;
+			width:183px;
+			line-height:60px; 
+			text-align:center;
+			text-decoration:none;
+			outline:none;
+			vertical-align:middle; 
+ 		}
+		#nav a:active {
+			background-repeat: no-repeat;
+			background-image: url(/media/Button_B_R_on.png);
+			z-index: 0;
+			display:block;
+			width:183px;
+			line-height:60px; 
+			text-align:center;
+			text-decoration:none;
+			outline:none;
+			vertical-align:middle; 
+ 		}
+		#topBotton a {
+			background-repeat: no-repeat;
+			background-image: url(/media/Button_G_S_off.png);
+			z-index: 0;
+			display:block;
+			width:183px;
+			line-height:60px; 
+			text-align:center;
+			text-decoration:none;
+			outline:none;
+			vertical-align:middle; 
+ 		}
+		#topBotton a:active {
+			background-repeat: no-repeat;
+			background-image: url(/media/Button_B_S_on.png);
+			z-index: 0;
+			display:block;
+			width:183px;
+			line-height:60px; 
+			text-align:center;
+			text-decoration:none;
+			outline:none;
+			vertical-align:middle; 
+ 		}
+		.slidingDiv {
+			text-align: center;
+			widows: 0;
+			background-color: white;
+		{% if page_name == 'New Request' %} 
+			width: 750px;
+			height:462px;
+		{% endif %}
+		{% if page_name == 'Received Request' %} 
+			width: 750px;
+			height:611px;
+		{% endif %}
+		{% if page_name == 'Sent Request' %} 
+			width: 750px;
+			height:648px;
+		{% endif %}
+		{% if page_name == 'Search Messages' %} 
+			width: 609px;
+			height:504px;
+		{% endif %}
+
+			padding:0px;
+			margin-top:0px;
+		}
+		.title {
+			border-width: 0px;
+			border-style: dotted;
+		}
+
+		.show_hide {
+			text-align: center;
+			display:none;
+		}
+		
+	</style>
+	<body TOPMARGIN=0 bgcolor="#000000">
+		<table align="center" border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#BADDF5" bgcolor="#080E73" width="85%" cellpadding="10">
+			<tr height="" valign="middle">
+				<td bgcolor="#CCCCCC" height="" width="183" bordercolor="" align="left"  valign="top">
+					<div id="topBotton">
+							<a href="#" align="right" class="show_hide"><font face='Arial Black' color="black" size="2" >Back End Process</a>
+							<a href="/ported/" align="right"><font face='Arial Black' color="black" size="2" >Reports</a>
+					</div>
+				</td>
+				<td bgcolor="#CCCCCC" height="" width="" bordercolor="" align="center"  valign="top">
+					<div align="center" class="title">
+						<img src="/media/4gtss_284x85.png" alt="Lightspeed"/><br><font face='Candara' color="Black" size="5" ><b>Number Portability Gateway</b>
+					</div>
+						<font face='Arial Black' color="red" size="1" >DEMO
+				</td>
+				<td bgcolor="#CCCCCC" height="" width="183" bordercolor="" align="right"  valign="top">
+					<div id="topBotton">
+						<a href="/media/User_Guide.pdf" align="right" class="show_hide" target="_blank"><font face='Arial Black' color="black" size="2" >Specifications Manual</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan = "3" height="0" background="/media/btn_switch-grid-on.gif">
+				<ul id="nav">
+					<table align="center" border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="" width="" cellpadding="0">
+						<tr>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/request/new/" style="color: #000000">New Request</a></li>
+							</td>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/request/incoming/" style="color: #000000">Received Request</a></li>
+							</td>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/request/outgoing/" style="color: #000000">Sent Request</a></li>
+							</td>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/request/search/" style="color: #000000">Search Messages</a></li>
+							</td>
+						</tr>
+					</table>
+					<table align="center" border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="" width="" cellpadding="0">
+						<tr>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/ported/" style="color: #000000">Summary</a></li>
+							</td>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/ported/" style="color: #000000">This Month</a></li>
+							</td>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/ported/" style="color: #000000">Yearly Report</a></li>
+							</td>
+							<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+								<li><font face='Arial Black' color="black" size="2"><a href="/ported/" style="color: #000000">Total Port IN/OUT</a></li>
+							</td>
+						</tr>
+					</table>				</ul>
+				</td>
+			</tr>			
+			<tr height="0" valign="middle" align="center">
+				<td colspan="3" bgcolor="" background="/media/btn_switch-grid-on.gif">
+					<div class="slidingDiv">
+						<div id="topBotton">
+						{% if page_name == 'New Request' %} 
+							<img src="/media/New_Request.png" alt="NpRequest" />
+						{% endif %}
+						{% if page_name == 'Received Request' %} 
+							<img src="/media/Received_Request.png" alt="NpRequest" />
+						{% endif %}
+						{% if page_name == 'Sent Request' %} 
+							<img src="/media/Sent_Request.png" alt="NpRequest" />
+						{% endif %}
+						{% if page_name == 'Search Messages' %} 
+							<img src="/media/search.png" alt="NpRequest" />
+						{% endif %}
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan = "3" height="" align="center" background="/media/btn_switch-grid-on.gif">
+
+                    <img src="/media/reports/summary.png" alt="summery" width="" height="" />
+                    <img src="/media/reports/total_port_in_out.png" alt="total_port_in_out" width="" height="" />
+                    <img src="/media/reports/monthly_in_out_messages.png" alt="monthly_in_out_messages" width="" height="" />
+                    <img src="/media/reports/in_out_request.png" alt="in_out_request" width="" height="" />
+                    <img src="/media/reports/yearly_in_out_messages.png" alt="yearly_in_out_messages" width="" height="" />
+                    <img src="/media/reports/yearly_number_activity.png" alt="yearly_number_activity" width="" height="" />
+
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center" bgcolor="#CCCCCC">
+					<img src="/media/4gtss.png" alt="Lightspeed"/><br><font face='Arial' size=1 color='black'>2012 4GTSS Corporation W.L.L
+				</td>
+			</tr>
+			</tr>
+		</table>
+	</body>
+</html>

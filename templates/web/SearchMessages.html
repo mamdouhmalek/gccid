@@ -1,0 +1,256 @@
+<!doctype html>
+{% extends "web/header.html" %}
+
+{% block title %}NPG - {% if page_name == 'Search Messages' %}Search Messages{% endif %}{% endblock %}
+{% block script %}
+{% endblock %}
+{% block content %}
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" width="850" cellpadding="5">
+<form enctype='multipart/form-data' name='NewNpRequest' id='NewNpRequest' action='/request/search/' method='post'>
+	<tr>
+		<td colspan="5" bgcolor="#6E6E6E" height="45" width="100%" bordercolor="#FFFFFF">
+			<p align="center"><b>
+			<font face='Candara' size=4 color='#FFFFFF'><b>
+				Search Messages
+				&nbsp;
+				</font></p>
+			<font face='Candara' size="2" color="#000066"> </font></b>
+		</td>
+	</tr>
+	<tr bgcolor="E0E0E0">
+		<td bgcolor="" height="35" align="center" width="" bordercolor="#FFFFFF">
+			<font face='Candara' color="#08125C" size=4><label for="id_port_id"><b>{{ form.port_id.label_tag }}</label>
+		</td>
+		<td bgcolor="" height="35" align="center" width="170" bordercolor="#FFFFFF">
+			<font face='Candara' color="#08125C" size=4><label for="id_number"><b>{{ form.number.label_tag }}</label>
+		</td>
+		<td bgcolor="" height="35" align="center" width="" bordercolor="#FFFFFF">
+			<font face='Candara' color="#08125C" size=4><label for="id_message_code"><b>{{ form.message_code.label_tag }}</label>
+		</td>
+		<td bgcolor="" height="35" align="center" width="" bordercolor="#FFFFFF">
+			<font face='Candara' color="#08125C" size=4><label for="id_direction"><b>Direction</label>
+		</td>
+		<td bgcolor="" height="35" align="center" width="" bordercolor="#FFFFFF">
+			<font face='Candara' color="#08125C" size=4><label for="id_direction"><b>Show Ack</label>
+		</td>
+	</tr>
+	<tr>
+		<td height="45" align="center" width="" bordercolor="#FFFFFF" bgcolor="white">
+			<font face='Candara'><input type="text" size="30" name="port_id" id="port_id" value="{% if form.port_id.value != None %}{{ form.port_id.value }}{% endif %}" />
+			<font face='Candara' size="1" color="red">{{ form.port_id.errors }}</font>
+		</td>
+		<td height="45" align="center" width="170" bordercolor="#FFFFFF" bgcolor="white">
+			<font face='Candara'><input type="text" size="8" name="number" id="number" value="{% if form.number.value != None %}{{ form.number.value }}{% endif %}" />
+			<font face='Candara' size="1" color="red">{{ form.number.errors }}</font>
+			<font face='Candara' size="2" color="black"><input type="checkbox" name="related" value="YES" {% if related == "YES" %} checked="yes"{% endif %} /> Related 
+		</td>
+		<td height="45" align="center" width="" bordercolor="#FFFFFF" bgcolor="white">
+			<select name="message_code">
+				<option value="ALL" {% if form.direction.value == "ALL" %} selected="selected"{% endif %} >All Messages</option>
+				<optgroup label="NpRequest">
+				<option value="NpRequest" {% if form.message_code.value == "NpRequest" %} selected="selected"{% endif %} >NpRequest</option>
+				<option value="NpRequestAccept" {% if form.message_code.value == "NpRequestAccept" %} selected="selected"{% endif %} >NpRequestAccept</option>
+				<option value="NpRequestReject" {% if form.message_code.value == "NpRequestReject" %} selected="selected"{% endif %} >NpRequestReject</option>
+				<option value="NpRequestCancel" {% if form.message_code.value == "NpRequestCancel" %} selected="selected"{% endif %} >NpRequestCancel</option>
+				</optgroup>
+				<optgroup label="Ack">
+				<option value="MessageAck" {% if form.message_code.value == "MessageAck" %} selected="selected"{% endif %} >MessageAck</option>
+				<option value="NpRequestAck" {% if form.message_code.value == "NpRequestAck" %} selected="selected"{% endif %} >NpRequestAck</option>
+				<option value="NpDeactivateAck" {% if form.message_code.value == "NpDeactivateAck" %} selected="selected"{% endif %} >NpDeactivateAck</option>
+				</optgroup>
+				<optgroup label="NpExecute">
+				<option value="NpExecute" {% if form.message_code.value == "NpExecute" %} selected="selected"{% endif %} >NpExecute</option>
+				<option value="NpExecuteBroadcast" {% if form.message_code.value == "NpExecuteBroadcast" %} selected="selected"{% endif %} >NpExecuteBroadcast</option>
+				<option value="NpExecuteComplete" {% if form.message_code.value == "NpExecuteComplete" %} selected="selected"{% endif %} >NpExecuteComplete</option>
+				</optgroup>
+				<optgroup label="NpDeactivate">
+				<option value="NpDeactivate" {% if form.message_code.value == "NpDeactivate" %} selected="selected"{% endif %} >NpDeactivate</option>
+				<option value="NpDeactivateBroadcast" {% if form.message_code.value == "NpDeactivateBroadcast" %} selected="selected"{% endif %} >NpDeactivateBroadcast</option>
+				<option value="NpDeactivateComplete" {% if form.message_code.value == "NpDeactivateComplete" %} selected="selected"{% endif %} >NpDeactivateComplete</option>
+				</optgroup>
+				<optgroup label="NpBillingResolution">
+				<option value="NpBillingResolution" {% if form.message_code.value == "NpBillingResolution" %} selected="selected"{% endif %} >NpBillingResolution</option>
+				<option value="NpBillingResolutionEnd" {% if form.message_code.value == "NpBillingResolutionEnd" %} selected="selected"{% endif %} >NpBillingResolutionEnd</option>
+				<option value="NpBillingResolutionReceived" {% if form.message_code.value == "NpBillingResolutionReceived" %} selected="selected"{% endif %} >NpBillingResolutionReceived</option>
+				<option value="NpBillingResolutionAlert" {% if form.message_code.value == "NpBillingResolutionAlert" %} selected="selected"{% endif %} >NpBillingResolutionAlert</option>
+				<option value="NpBillingResolutionAlertReceived" {% if form.message_code.value == "NpBillingResolutionAlertReceived" %} selected="selected"{% endif %} >NpBillingResolutionAlertReceived</option>
+				</optgroup>
+				<optgroup label="Others">
+				<option value="ErrorNotification" {% if form.message_code.value == "ErrorNotification" %} selected="selected"{% endif %} >ErrorNotification</option>
+				<option value="NpQuery" {% if form.message_code.value == "NpQuery" %} selected="selected"{% endif %} >NpQuery</option>
+				<option value="NpQueryComplete" {% if form.message_code.value == "NpQueryComplete" %} selected="selected"{% endif %} >NpQueryComplete</option>
+				</optgroup>
+			</select>
+		</td>
+		<td height="45" align="center" width="" bordercolor="#FFFFFF" bgcolor="white">
+			<select name="direction">
+				<option value="ALL" {% if form.direction.value == "ALL" %} selected="selected"{% endif %} >All Messages</option>
+				<option value="IN" {% if form.direction.value == "IN" %} selected="selected"{% endif %} >Incoming Messages</option>
+				<option value="OUT" {% if form.direction.value == "OUT" %} selected="selected"{% endif %} >Outgoing Messages</option>
+			</select>
+		</td>
+		<td height="45" align="center" width="" bordercolor="#FFFFFF" bgcolor="white">
+			<font face='Candara' size="2" color="black"><input type="checkbox" name="showAck" value="YES" {% if showAck == "YES" %} checked="yes"{% endif %} /> 
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#6E6E6E" height="45" width="" bordercolor="#FFFFFF" bgcolor="white">
+			<p align="center"><input name='submitReport' type=image src="/media/Show_All_Search.png" value='    Show All / Search    '>&nbsp;&nbsp;&nbsp;<input name='ExportReportExcel' type=image src="/media/excel.png"  value='  Export Results - Excel  '>&nbsp;&nbsp;&nbsp;<input name='ExportReportCSV'  type=image src="/media/csv.png" value='   Export Results - CSV   '></p>
+		</td>
+	</tr>
+
+	{% if port_id_list %}
+
+	<tr>
+		<td align="center" colspan="4" bgcolor="#6E6E6E" height="45" width="" bordercolor="#FFFFFF" bgcolor="white">
+			<font face='Candara' size="2" color="white">Found multiple Port ID for this number: {{ form.number.value }} please choose one then click search<br>
+			<table border="1" cellspacing="1" style="border-collapse: collapse" cellpadding="5" bgcolor="white">
+			
+			{% for port_id in port_id_list %}
+			<tr>
+				<td bordercolor="black" align="center">
+					<a href="#" onclick="document.getElementById('port_id').value = '{{ port_id }}'; " /><font face='Candara' size="1" color="black">{{ port_id }}</a>
+				</td>
+			</tr>
+			{% endfor %}
+			</table>
+		</td>
+	</tr>
+
+</table>
+<br>
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" width="1000" cellpadding="5">
+
+{% else %}
+
+</table>
+<br>
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" width="1000" cellpadding="5">
+
+{% if message_list.object_list %}
+<tr bgcolor="#E0E0E0">
+	<td width="120" bgcolor="" align="center" valign="middle">
+		{% if message_list.has_previous %}
+			<input type="hidden" name="pageP" value="{{ message_list.previous_page_number }}">
+			<input name='PageChangeP' type=image src="/media/previous_on.png" value='Previous'>
+		{% else %}
+			<img border="0" src="/media/previous_off.png" />
+		{% endif %}
+	</td>
+	<td bgcolor="" height="45" width="800" align="center" valign="middle" bordercolor="#FFFFFF">
+		<font face='Candara' size=4 color='#000000'><b>
+			Search Results 
+			<font face='Candara' size=3 color='black'> - Found {{ total_results_found }} messages
+			{% if message_list.has_previous %}
+			<font face='Candara' size=3 color='black'>
+				 - Page {{ message_list.number }} of {{ message_list.paginator.num_pages }}
+			 
+			 
+			 
+			{% else %}
+			{% if message_list.has_next %}
+			 - Page {{ message_list.number }} of {{ message_list.paginator.num_pages }}
+			 
+
+			{% else %}
+			{% endif %}
+			{% endif %}
+			&nbsp;
+			</font>
+		<font face='Candara' size="2" color="#000066"> </font></b>
+	</td>
+	<td width="120" bgcolor="" align="center" valign="middle">
+		{% if message_list.has_next %}
+			<input type="hidden" name="pageN" value="{{ message_list.next_page_number }}">
+			<input name='PageChangeN' type=image src="/media/next_on.png" value='Next'>
+		{% else %}
+			<img border="0" src="/media/next_off.png" />
+		{% endif %}
+	</td>
+</tr>
+</form>
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" width="1000" cellpadding="5">
+	<tr bgcolor="#6E6E6E">
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" align="center" color="white" face='Candara'>#</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>Time</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>Message Code</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>Port ID</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>Submission ID</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>Phone Number</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>SIM #</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>Company Flag</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>CR #</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>CPR #</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="2" color="white" face='Candara'><b>In/Out</font>
+		</td>
+	</tr>
+{% for message in message_list.object_list %}
+	<tr {% if forloop.counter0|divisibleby:2 %}bgcolor="#F0F0F0"{% else %}bgcolor="white"{% endif %}>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'><a href="{% if message.message_id != None %}{{ message.message_id }}{% endif %}" onclick="window.open('{% if message.message_id != None %}{{ message.message_id }}{% endif %}','popup','width=900,height=700,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no,left=50,top=0'); return false">{% if message.message_id != None %}{{ message.message_id }}{% endif %}</a></font>
+		</td>
+		<td>
+			<font size="1" color="black" face='Candara'>{% if message.time_stamp != None %}{{ message.time_stamp }}{% endif %}</font>
+		</td>
+		<td height="5" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.message_code != None %}{{ message.message_code }}{% endif %}</font>
+		</td>
+		<td height="5" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.port_id != None %}<a href="#" onclick="document.getElementById('port_id').value = '{{ message.port_id }}'; " />{{ message.port_id }}{% endif %}</font>
+		</td>
+		<td height="5" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.submission_id != None %}{{ message.submission_id }}{% endif %}</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.number != None %}<a href="#" onclick="document.getElementById('number').value = '{{ message.number }}'; " />{{ message.number }}{% endif %}</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.sim_card_number != None %}{{ message.sim_card_number }}{% endif %}</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.company_flag != None %}{{ message.company_flag }}{% endif %}</font>
+		</td>
+		<td height="5" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.commercial_reg_number != None %}{{ message.commercial_reg_number }}{% endif %}</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.cpr != None %}{{ message.cpr }}{% endif %}</font>
+		</td>
+		<td height="5" align="center" bordercolor="#FFFFFF">
+			<font size="1" color="black" face='Candara'>{% if message.direction != None %}{{ message.direction }}{% endif %}</font>
+		</td>
+	</tr>
+{% endfor %}
+{% else %}
+{% if submitted == "yes" %}
+<tr>
+	<td colspan="6" bgcolor="#D6DFEF" height="16" width="100%" bordercolor="#FFFFFF">
+		<p align="center"><font size="1" color="red" face='Candara'>No Messages Found</font></p>
+	</td>
+</tr>
+{% endif %}
+{% endif %}
+{% endif %}
+</table>
+{% endblock %}

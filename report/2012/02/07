@@ -1,0 +1,215 @@
+[2012-02-07 04:00:26,104]  ___________________________  Incoming ErrorNotification  ___________________________
+[2012-02-07 04:00:26,108]  New Message IN: ErrorNotification[MessageCode=ErrorNotification; PortID=LSCO-LSCX-20120206-00000; Comments=Donor did not respond within timer T3. NP Order is terminated.; RejectedMessageCode=NpRequest; ErrorCode=ERR0033; OriginationID=CSYS; DestinationID=LSCO], DB[MessageID=233; Time=2012-02-07 04:00:26.105589; Direction=IN; New=Y]
+[2012-02-07 04:00:26,111]  New Message OUT: MessageAck[ServiceType=F; MessageCode=MessageAck; PortID=LSCO-LSCX-20120206-00000; OriginationID=LSCO; DestinationID=CSYS], DB[MessageID=234; Time=2012-02-07 04:00:26.109426; Direction=OUT; New=N]
+[2012-02-07 04:00:26,111]  ___________________________  END of ErrorNotification  ___________________________
+[2012-02-07 10:16:32,348]  New Form is created, ready to be filled and submitted
+[2012-02-07 10:19:23,921]  New Message OUT: NpRequest[MessageCode=NpRequest; ServiceType=M;  Number=12345678; SubmissionID=LSCO-2012-12345678; DonorID=LSCX; RecipientID=LSCO; OriginationID=LSCO; DestinationID=CSYS], DB[MessageID=235; Time=2012-02-07 10:19:23.918925; Direction=OUT; New=N]
+[2012-02-07 10:19:23,924]  New Message IN: ErrorNotification[MessageCode=ErrorNotification; ServiceType=None; PortID=None; RejectedMessageCode=NpRequest; ErrorCode=ERR0023; Comments=string value '123456789123456789' does not match pattern for SimCardNumber in namespace http://np.systor.st/commontypes; OriginationID=CSYS; DestinationID=LSCO], DB[MessageID=236; Time=2012-02-07 10:19:23.922504; Direction=IN; New=N]
+[2012-02-07 12:49:48,753]  New Form is created, ready to be filled and submitted
+[2012-02-07 13:04:33,843]  New Form is created, ready to be filled and submitted
+[2012-02-07 13:05:41,716]  New Message OUT: NpRequest[MessageCode=NpRequest; ServiceType=F; PortID=LSCO-LSCX-20120207-00003;  Number=12345678; SubmissionID=LSCO-2012-12345678; DonorID=LSCX; RecipientID=LSCO; OriginationID=LSCO; DestinationID=CSYS], DB[MessageID=237; Time=2012-02-07 13:05:41.713521; Direction=OUT; New=Y]
+[2012-02-07 13:05:41,719]  New Message IN: NpRequestAck[MessageCode=NpRequestAck; ServiceType=F; PortID=LSCO-LSCX-20120207-00003; Number=12345678; SubmissionID=LSCO-2012-12345678; DonorID=LSCX; RecipientID=LSCO; OriginationID=CSYS; DestinationID=LSCO], DB[MessageID=238; Time=2012-02-07 13:05:41.717257; Direction=IN; New=N]
+[2012-02-07 13:05:57,526]  ___________________________  Incoming NpRequestReject  ___________________________
+[2012-02-07 13:05:57,531]  New Message IN: NpRequestReject[MessageCode=NpRequestReject; ServiceType=F; Number=12345678; DonorID=LSCX; RecipientID=LSCO; PortID=LSCO-LSCX-20120207-00003; SubmissionID=LSCO-2012-12345678; Comments=Number/number range not found in numberplan; OriginationID=CSYS; DestinationID=LSCO], DB[MessageID=239; Time=2012-02-07 13:05:57.526574; Direction=IN; New=Y]
+[2012-02-07 13:05:57,595]  Email sent successfully for message: [MessageID=239; MessageCode=NpRequestReject; Number=12345678]
+[2012-02-07 13:05:57,597]  New Message OUT: MessageAck[ServiceType=F; MessageCode=MessageAck; PortID=LSCO-LSCX-20120207-00003; OriginationID=LSCO; DestinationID=CSYS], DB[MessageID=240; Time=2012-02-07 13:05:57.596100; Direction=OUT; New=N]
+[2012-02-07 13:05:57,601]  Found Message: NpRequest[ServiceType=F; MessageCode=NpRequest; Number=12345678; PortID=LSCO-LSCX-20120207-00003; DonorID=LSCX; RecipientID=LSCO; OriginationID=LSCO; DestinationID=CSYS], DB[MessageID=237; Time=2012-02-07 13:05:41; Direction=OUT; New=Y]
+[2012-02-07 13:05:57,604]  Updated Message: NpRequest[ServiceType=F; MessageCode=NpRequest; Number=12345678; PortID=LSCO-LSCX-20120207-00003; DonorID=LSCX; RecipientID=LSCO; OriginationID=LSCO; DestinationID=CSYS], DB[MessageID=237; Time=2012-02-07 13:05:57.602824; Direction=OUT; New=N]
+[2012-02-07 13:05:57,605]  ___________________________  END of NpRequestReject  ___________________________
+[2012-02-07 13:09:45,788]  New Form is created, ready to be filled and submitted
+[2012-02-07 13:23:29,001]  New Form is created, ready to be filled and submitted
+[2012-02-07 13:27:12,359]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:38:49,654]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:40:09,142]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:40:48,779]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:43:02,996]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:44:34,628]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:45:01,752]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:48:16,559]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:49:50,386]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:50:36,332]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:53:22,569]  New Form is created, ready to be filled and submitted
+[2012-02-07 14:58:49,269]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:00:16,813]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:00:29,384]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:08:47,267]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:09:06,958]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:09:09,994]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:13:09,860]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:13:27,539]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:13:31,679]  Submission is not Valid
+[2012-02-07 15:13:34,585]  Submission is not Valid
+[2012-02-07 15:17:17,493]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:17:28,457]  Submission is not Valid
+[2012-02-07 15:18:07,303]  Submission is not Valid
+[2012-02-07 15:21:15,571]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:22:30,541]  Direction is set to : ALL
+[2012-02-07 15:23:27,419]  Direction is set to : ALL
+[2012-02-07 15:24:06,431]  Direction is set to : ALL
+[2012-02-07 15:26:13,033]  Direction is set to : ALL
+[2012-02-07 15:34:27,601]  Direction is set to : ALL
+[2012-02-07 15:34:57,698]  Direction is set to : ALL
+[2012-02-07 15:35:08,415]  Direction is set to : ALL
+[2012-02-07 15:35:42,408]  Direction is set to : ALL
+[2012-02-07 15:37:10,469]  Direction is set to : ALL
+[2012-02-07 15:37:55,678]  Direction is set to : ALL
+[2012-02-07 15:39:01,778]  Direction is set to : ALL
+[2012-02-07 15:39:20,859]  Direction is set to : IN
+[2012-02-07 15:39:31,126]  Direction is set to : OUT
+[2012-02-07 15:39:41,067]  Direction is set to : ALL
+[2012-02-07 15:40:46,182]  Direction is set to : ALL
+[2012-02-07 15:44:34,751]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:44:48,888]  Direction is set to : ALL
+[2012-02-07 15:45:23,495]  Direction is set to : ALL
+[2012-02-07 15:45:38,403]  Direction is set to : ALL
+[2012-02-07 15:46:55,463]  Direction is set to : ALL
+[2012-02-07 15:47:49,186]  Direction is set to : ALL
+[2012-02-07 15:48:43,296]  Direction is set to : ALL
+[2012-02-07 15:48:43,908]  Direction is set to : ALL
+[2012-02-07 15:50:45,671]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:50:56,787]  Direction is set to : ALL
+[2012-02-07 15:52:31,499]  New Form is created, ready to be filled and submitted
+[2012-02-07 15:52:43,011]  Direction is set to : ALL
+[2012-02-07 15:54:08,304]  Direction is set to : ALL
+[2012-02-07 21:18:52,919]  New Form is created, ready to be filled and submitted
+[2012-02-07 21:20:36,202]  New Message OUT: NpRequest[MessageCode=NpRequest; ServiceType=M;  Number=12345678; SubmissionID=LSCO-2012-12345678; DonorID=LSCX; RecipientID=LSCO; OriginationID=LSCO; DestinationID=CSYS], DB[MessageID=241; Time=2012-02-07 21:20:36.190062; Direction=OUT; New=N]
+[2012-02-07 21:20:36,204]  New Message IN: ErrorNotification[MessageCode=ErrorNotification; ServiceType=None; PortID=None; RejectedMessageCode=NpRequest; ErrorCode=ERR0023; Comments=string value '123456789123456789' does not match pattern for SimCardNumber in namespace http://np.systor.st/commontypes; OriginationID=CSYS; DestinationID=LSCO], DB[MessageID=242; Time=2012-02-07 21:20:36.202831; Direction=IN; New=N]
+[2012-02-07 21:35:36,992]  New Form is created, ready to be filled and submitted
+[2012-02-07 21:36:26,915]  New Form is created, ready to be filled and submitted
+[2012-02-07 21:36:37,564]  Direction is set to : ALL
+[2012-02-07 21:37:45,876]  Direction is set to : ALL
+[2012-02-07 21:38:00,758]  Direction is set to : ALL
+[2012-02-07 21:41:12,386]  Direction is set to : ALL
+[2012-02-07 21:41:12,386]  port_id is set to : LSCO-LSCX-20120204-00007
+[2012-02-07 21:42:07,969]  Direction is set to : ALL
+[2012-02-07 21:42:07,970]  port_id is set to : LSCO-LSCX-20120204-00007
+[2012-02-07 21:45:58,043]  New Form is created, ready to be filled and submitted
+[2012-02-07 21:46:01,232]  Direction is set to : ALL
+[2012-02-07 21:46:01,232]  port_id is set to : 
+[2012-02-07 21:52:58,870]  Direction is set to : ALL
+[2012-02-07 21:52:58,870]  port_id is set to : LSCO-LSCX-20120204-00007
+[2012-02-07 21:54:09,599]  Direction is set to : ALL
+[2012-02-07 21:54:09,599]  port_id is set to : LSCO-LSCX-20120204-00007
+[2012-02-07 21:58:36,936]  Direction is set to : ALL
+[2012-02-07 21:58:36,936]  port_id is set to : LSCO-LSCX-20120204-00007
+[2012-02-07 21:58:57,361]  Direction is set to : ALL
+[2012-02-07 21:58:57,361]  port_id is set to : 
+[2012-02-07 21:59:39,157]  Direction is set to : IN
+[2012-02-07 21:59:39,157]  port_id is set to : 
+[2012-02-07 22:02:09,792]  Direction is set to : ALL
+[2012-02-07 22:02:09,792]  port_id is set to : 
+[2012-02-07 22:02:52,454]  Direction is set to : ALL
+[2012-02-07 22:02:52,455]  port_id is set to : 
+[2012-02-07 22:06:04,070]  Direction is set to : IN
+[2012-02-07 22:06:04,070]  port_id is set to : 
+[2012-02-07 22:06:08,656]  Direction is set to : ALL
+[2012-02-07 22:06:08,656]  port_id is set to : 
+[2012-02-07 22:06:12,497]  Direction is set to : OUT
+[2012-02-07 22:06:12,498]  port_id is set to : 
+[2012-02-07 22:06:41,399]  Direction is set to : IN
+[2012-02-07 22:06:41,399]  port_id is set to : 
+[2012-02-07 22:07:36,461]  Direction is set to : IN
+[2012-02-07 22:07:36,461]  port_id is set to : 
+[2012-02-07 22:07:40,756]  Direction is set to : IN
+[2012-02-07 22:07:40,757]  port_id is set to : 
+[2012-02-07 22:08:27,886]  Direction is set to : IN
+[2012-02-07 22:08:27,887]  port_id is set to : 
+[2012-02-07 22:08:32,251]  Direction is set to : IN
+[2012-02-07 22:08:32,251]  port_id is set to : 
+[2012-02-07 22:08:36,380]  Direction is set to : IN
+[2012-02-07 22:08:36,380]  port_id is set to : 
+[2012-02-07 22:09:06,901]  Direction is set to : IN
+[2012-02-07 22:09:06,901]  port_id is set to : 
+[2012-02-07 22:09:08,320]  Direction is set to : IN
+[2012-02-07 22:09:08,320]  port_id is set to : 
+[2012-02-07 22:09:11,019]  Direction is set to : IN
+[2012-02-07 22:09:11,020]  port_id is set to : 
+[2012-02-07 22:10:57,589]  Direction is set to : IN
+[2012-02-07 22:10:57,589]  related is set to : yes
+[2012-02-07 22:11:38,642]  Direction is set to : IN
+[2012-02-07 22:11:38,642]  related is set to : YES
+[2012-02-07 22:12:47,439]  Direction is set to : IN
+[2012-02-07 22:12:47,439]  related is set to : YES
+[2012-02-07 22:14:37,029]  Direction is set to : IN
+[2012-02-07 22:14:37,029]  related is set to : YES
+[2012-02-07 22:14:40,759]  Direction is set to : IN
+[2012-02-07 22:14:40,759]  related is set to : YES
+[2012-02-07 22:16:46,894]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:17:14,256]  Direction is set to : ALL
+[2012-02-07 22:17:14,256]  related is set to : NO
+[2012-02-07 22:17:23,224]  Direction is set to : ALL
+[2012-02-07 22:17:23,225]  related is set to : NO
+[2012-02-07 22:17:35,632]  Direction is set to : ALL
+[2012-02-07 22:17:35,633]  related is set to : YES
+[2012-02-07 22:18:48,382]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:21:04,561]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:21:29,732]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:21:36,797]  Direction is set to : ALL
+[2012-02-07 22:21:36,797]  related is set to : NO
+[2012-02-07 22:21:40,079]  Direction is set to : IN
+[2012-02-07 22:21:40,080]  related is set to : NO
+[2012-02-07 22:21:43,275]  Direction is set to : OUT
+[2012-02-07 22:21:43,276]  related is set to : NO
+[2012-02-07 22:23:57,072]  Direction is set to : OUT
+[2012-02-07 22:23:57,072]  related is set to : NO
+[2012-02-07 22:24:29,215]  Direction is set to : OUT
+[2012-02-07 22:24:29,215]  related is set to : NO
+[2012-02-07 22:25:23,319]  Direction is set to : OUT
+[2012-02-07 22:25:23,319]  related is set to : NO
+[2012-02-07 22:26:09,893]  Direction is set to : OUT
+[2012-02-07 22:26:09,893]  related is set to : YES
+[2012-02-07 22:26:18,368]  Direction is set to : ALL
+[2012-02-07 22:26:18,368]  related is set to : NO
+[2012-02-07 22:27:07,685]  Direction is set to : ALL
+[2012-02-07 22:27:07,685]  related is set to : NO
+[2012-02-07 22:27:09,936]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:35:16,832]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:35:56,960]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:37:04,463]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:38:10,487]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:40:06,864]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:40:16,700]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:40:39,408]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:40:49,611]  Direction is set to : ALL
+[2012-02-07 22:40:49,611]  related is set to : NO
+[2012-02-07 22:41:06,614]  Direction is set to : ALL
+[2012-02-07 22:41:06,614]  related is set to : NO
+[2012-02-07 22:41:21,539]  Direction is set to : ALL
+[2012-02-07 22:41:21,539]  related is set to : NO
+[2012-02-07 22:46:53,205]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:48:22,668]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:48:24,556]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:48:27,876]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:50:22,702]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:50:29,677]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:50:37,715]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:50:40,091]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:50:44,053]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:56:35,553]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:56:52,559]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:57:54,579]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:58:01,973]  Direction is set to : ALL
+[2012-02-07 22:58:01,973]  related is set to : NO
+[2012-02-07 22:59:08,556]  New Form is created, ready to be filled and submitted
+[2012-02-07 22:59:16,213]  Direction is set to : ALL
+[2012-02-07 22:59:16,214]  related is set to : NO
+[2012-02-07 23:43:08,506]  New Form is created, ready to be filled and submitted
+[2012-02-07 23:43:21,599]  Direction is set to : ALL
+[2012-02-07 23:43:21,599]  related is set to : NO
+[2012-02-07 23:44:01,604]  New Form is created, ready to be filled and submitted
+[2012-02-07 23:44:09,433]  Direction is set to : ALL
+[2012-02-07 23:44:09,434]  related is set to : NO
+[2012-02-07 23:48:59,612]  New Form is created, ready to be filled and submitted
+[2012-02-07 23:49:25,719]  Direction is set to : ALL
+[2012-02-07 23:49:25,719]  related is set to : NO
+[2012-02-07 23:54:45,920]  New Form is created, ready to be filled and submitted
+[2012-02-07 23:54:55,476]  Direction is set to : ALL
+[2012-02-07 23:54:55,476]  related is set to : NO
+[2012-02-07 23:55:24,715]  New Form is created, ready to be filled and submitted
+[2012-02-07 23:55:28,168]  Direction is set to : ALL
+[2012-02-07 23:55:28,168]  related is set to : NO
+[2012-02-07 23:56:39,926]  Direction is set to : ALL
+[2012-02-07 23:56:39,926]  related is set to : NO
+[2012-02-07 23:58:47,900]  New Form is created, ready to be filled and submitted
+[2012-02-07 23:58:55,424]  Direction is set to : ALL
+[2012-02-07 23:58:55,424]  related is set to : NO

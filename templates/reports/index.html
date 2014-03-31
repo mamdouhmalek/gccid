@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends "web/header.html" %}
+
+{% block title %}NPG - Reports{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<ul id="subnav">
+	<table align="center" border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="" width="" cellpadding="0">
+		<tr>
+			<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+				<li>
+					<font face='Arial Black' color="black" size="2">
+					<a href="#" class="show_hide1" style="color: #000000">Summary</a>
+				</li>
+			</td>
+			<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+				<li>
+					<font face='Arial Black' color="black" size="2">
+					<a href="#" class="show_hide2" style="color: #000000">Monthly Report</a>
+				</li>
+			</td>
+			<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+				<li>
+					<font face='Arial Black' color="black" size="2">
+					<a href="#" class="show_hide3" style="color: #000000">Yearly Report</a>
+				</li>
+			</td>
+			<td colspan="2" bgcolor="" height="45" width="200" bordercolor="#FFFFFF" align="center">
+				<li>
+					<font face='Arial Black' color="black" size="2">
+					<a href="#" class="show_hide4" style="color: #000000">Total Port IN/OUT</a>
+				</li>
+			</td>
+		</tr>
+	</table>
+</ul>
+		<div class="slidingDiv1">
+			<img src="/media/reports/summary.png" alt="summery" width="" height="" />
+		</div>
+		<div class="slidingDiv2">
+			<img src="/media/reports/monthly_in_out_messages.png" alt="monthly_in_out_messages" width="" height="" />
+		</div>
+		<div class="slidingDiv3">
+			<img src="/media/reports/yearly_number_activity.png" alt="yearly_number_activity" width="" height="" />
+			<img src="/media/reports/yearly_in_out_messages.png" alt="yearly_in_out_messages" width="" height="" />
+			<img src="/media/reports/in_out_request.png" alt="in_out_request" width="" height="" />
+		</div>
+		<div class="slidingDiv4">
+			<img src="/media/reports/total_port_in_out.png" alt="total_port_in_out" width="" height="" />
+		</div>
+
+{% endblock %}

@@ -1,0 +1,291 @@
+<!doctype html>
+<!doctype html>
+{% extends "web/header.html" %}
+
+{% block title %}NPG - New Request{% endblock %}
+
+
+{% block script %}
+			function onSelect(objSelect){
+				if (objSelect.value=="Y") {
+					document.getElementById("otherOpt").style.display='block'; // Show Options
+					document.getElementById("otherOpt1").style.display='none'; // Show Options
+				}else{
+					document.getElementById("otherOpt").style.display='none'; // hide Options
+					document.getElementById("otherOpt1").style.display='block'; // hide Options
+				}
+			}
+			function onSelect2(objSelect){
+				if (objSelect.value=="0") {
+					document.getElementById("subID").style.display='block'; // Show Options
+				}else{
+					document.getElementById("subID").style.display='none'; // hide Options
+				}
+			}
+			function onSelect3(objSelect){
+				if (objSelect.value=="M") {
+					document.getElementById("sim_card").style.display='block'; // Show Options
+					document.getElementById("sim_card1").style.display='none'; // Show Options
+				}else{
+					document.getElementById("sim_card").style.display='none'; // hide Options
+					document.getElementById("sim_card1").style.display='block'; // hide Options
+				}
+			}
+			
+			function validateForm() {
+				var x = document.forms["NewNpRequest"]["submission_auto"].value;
+				var y = document.forms["NewNpRequest"]["id_submission_id"].value;
+				var SID = /^[A-Z]{4}[\-][0-9]{4}[\-][0-9]{8}$/
+				var NUM = /^[0-9]{8}$/
+				var SIM = /^[0-9]{18,19}$/
+				var CPR = /^[0-9]{9}$/
+				var CRN = /^[0-9]{1,7}[\/][0-9]{1,2}$/
+				var PASN = /^[0-9A-Za-z]{5,12}$/
+				var CMNT = /^[a-zA-Z0-9\-\_\+\.\s]{1,100}$/
+				
+				if (x=="0") {
+					if (y==null || y=="") {						
+						alert('Submission ID is missing..."');
+						return false;
+											}
+					if (!SID.test(y)){
+						alert("Submission ID doesn't match the correct format!");
+						return false;
+										} 
+				}
+				var x = document.forms["NewNpRequest"]["id_donor_id"].value;
+				if (x==null || x=="") {
+					alert("Donor ID is missing...");
+					return false;
+				}
+				
+				var x = document.forms["NewNpRequest"]["id_comments"].value;
+				if (!CMNT.test(x) && x) {
+						//document.write(x)
+						alert("Comments doesn't match the correct format or more than 100 chrs.!\nEx. This-is_comnt Num. 100");
+						return false;
+								} 								
+							
+				
+				var x = document.forms["NewNpRequest"]["id_number"].value;
+				if (x==null || x=="") {
+					alert("Phone Number is missing...");
+					return false;
+				}				
+				else if (!NUM.test(x)){
+						//document.write(x)
+						alert("Phone Number should be an 8-digit number");
+						return false;
+								} 
+				else {}
+				
+				
+				var x = document.forms["NewNpRequest"]["id_service_type"].value;
+				var y = document.forms["NewNpRequest"]["id_sim_card_number"].value;
+				if (x=="M") {
+					if (y==null || y=="") {
+						alert('SIM Card Number is required, when mobile is selected');
+						return false;
+											}
+					else if (!SIM.test(y)){
+						alert("SIM Card Number doesn't match the correct format!\nIt should be either 18 or 19 digits.");
+						return false;
+										}
+					else {}											
+											
+				}
+				var x = document.forms["NewNpRequest"]["id_cpr"].value;
+				var y = document.forms["NewNpRequest"]["id_passport_number"].value;
+				if ((x==null || x=="") && (y==null || y=="")) {
+					alert("Please provide the CPR # or Passport # or both...");
+					return false;
+				}
+				else if (!CPR.test(x) && x) {
+						//document.write(x)
+						alert("The CPR should be a 9-digit number");
+						return false;
+								} 
+				else if (!PASN.test(y) && y) {
+						//document.write(y)
+						alert("Passport Number doesn't match the correct format!\nIt should be between 5 and 12 characters");
+						return false;
+								} 
+				else {}
+				
+				
+				var x = document.forms["NewNpRequest"]["id_company_flag"].value;
+				var y = document.forms["NewNpRequest"]["id_commercial_reg_number"].value;
+				if (x=="Y") {
+					if (y==null || y=="") {
+						alert('Commercial Registration Number is missing or set Company Flag to "No - Private Customer"');
+						return false;
+											}
+					if (!CRN.test(y)){
+						alert("Commercial Registration Number doesn't match the correct format!\n7 digits max,forward slash, 2 digits max.\nEx. 1234567/12");
+						return false;
+										}						
+				}
+			}
+
+ 		
+{% endblock %}
+{% block content %}
+		<form enctype='multipart/form-data' name='NewNpRequest' id='NewNpRequest' action='/request/new/' onsubmit="return validateForm()" method='post'>
+		{{ form.non_field_errors }}
+			<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" bordercolor="#000066" width="600" cellpadding="5">
+			{% if reply_list %}
+				<tr>
+					<td colspan="2" bgcolor="#6E6E6E" height="45" width="100%" bordercolor="#FFFFFF">
+						<p align="center">
+						<font face='Candara' size=4 color='#FFFFFF'>
+							<b>Submitted Request Results</b>
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="{{ back_color }}" height="45" width="100%" bordercolor="#FFFFFF">
+							{% for key,value in reply_list.items %}
+								<div align="left" width="30px;" style="font-weight: normal; font-family: Candara; font-size: 12px;">
+									<b>{{ key }}:</b> {{ value }}
+								</div>
+							{% endfor %}
+					</td>
+				</tr>
+				{% endif %}
+				<tr>
+					<td colspan="2" bgcolor="#6E6E6E" height="45" width="100%" bordercolor="#FFFFFF">
+						<p align="center"><b>
+						<font face='Candara' size=4 color='#FFFFFF'><b>
+							New Request
+							&nbsp;
+							</font>
+						<font face='Candara' size="2" color="#000066"> </font></b>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#E0E0E0" height="16" width="100%" bordercolor="#FFFFFF">
+						<font size="1" color="red" face='Candara'>Please fill in all fields marked with a *</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_submission_id">{{ form.submission_id.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara'>
+						<select name='submission_auto' id="submission_auto" onchange="onSelect2(this);">
+							<option value='1' selected="selected">Auto Generate</option>
+							<option value='0'>Custom</option>
+						</select>
+						<div id="subID" style="display:none">
+							{{ form.submission_id }} 
+							<font color="red">*</font>
+							<font face='Candara' size="1">ex. RWAB-2012-33214322</font>
+						</div>
+						<font face='Candara' size="1" color="red">{{ form.submission_id.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_donor_id">{{ form.donor_id.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara'>{{ form.donor_id }}
+						<font face='Candara' size="1" color="red">{{ form.donor_id.errors }}</font>
+						<font face='Candara' size="2"> ex. 16600000 - 16699999</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_number">{{ form.number.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara'>{{ form.number }}</font>
+						<label for="id_service_type"></label>
+							<select name="service_type" id="id_service_type" onchange="onSelect3(this);">
+								<option value="F" selected="selected">Fixed</option>
+								<option value="M">Mobile</option>
+								<option value="S">Special Services</option>
+							</select>
+						<font face='Candara' size="1" color="red">{{ form.number.errors }}</font>
+						<font face='Candara' size="1" color="red">{{ form.service_type.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_sim_card_number">{{ form.sim_card_number.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<div id="sim_card" style="display:none">
+							{{ form.sim_card_number }}<font color="red" face='Candara'>*</font><font face='Candara' size="2"> ex. 8997301012345678901</font>
+						</div>
+						<div id="sim_card1" style="">
+							<font face='Candara' size="1">Only if Mobile is selected</font>
+						</div>
+						<font face='Candara' size="1" color="red">{{ form.sim_card_number.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_company_flag">{{ form.company_flag.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara'>
+							<select name="company_flag" id="id_company_flag" onchange="onSelect(this);">
+								<option value="N" selected="selected">No - Private Customer</option>
+								<option value="Y">Yes - Company</option>
+							</select>
+						<font color="red" face='Candara'>*</font><font face='Candara' size="1" color="red">{{ form.company_flag.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_cpr">{{ form.cpr.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2">{{ form.cpr }} ex. 123456789</font>
+						<font face='Candara' size="1" color="red">{{ form.cpr.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_commercial_reg_number">{{ form.commercial_reg_number.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara'>
+							<div id="otherOpt" style="display:none">
+								{{ form.commercial_reg_number }}<font color="red" face='Candara'>*</font>
+							</div>
+							<div id="otherOpt1" style="">
+								<font face='Candara' size="1">Only if Company Flag is set</font>
+							</div>
+						<font face='Candara' size="1" color="red">{{ form.commercial_reg_number.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_passport_number">{{ form.passport_number.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara'>{{ form.passport_number }}
+						<font face='Candara' size="1" color="red">{{ form.passport_number.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td height="30" width="205" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara' size="2"><label for="id_comments">{{ form.comments.label_tag }}:</label>
+					</td>
+					<td height="30" width="202" bgcolor="#E0E0E0" bordercolor="#FFFFFF">
+						<font face='Candara'>{{ form.comments }}</font><font face='Candara' size="1" color="red">{{ form.comments.errors }}</font>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#6E6E6E" height="25" width="737"><p align="center">
+						<input name='submitReport' type=submit value='Submit'>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="reset" value='Clear'></font>
+					</td>
+				</tr>
+			</table>
+		</form>
+{% endblock %}

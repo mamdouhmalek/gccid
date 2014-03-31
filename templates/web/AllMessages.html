@@ -1,0 +1,140 @@
+<!doctype html>
+{% extends "web/header.html" %}
+
+{% block title %}Mediation Device - Search Messages{% endblock %}
+
+
+{% block script %}
+		function onSelect(objSelect){
+			if (objSelect.value=="Y") {
+				document.getElementById("otherOpt").style.display='block'; // Show Options
+			}else{
+				document.getElementById("otherOpt").style.display='none'; // hide Options
+			}
+		}
+		function onSelect2(objSelect){
+			if (objSelect.value=="1") {
+				document.getElementById("otherOpt1").style.display='block'; // Show Options
+			}else{
+				document.getElementById("otherOpt1").style.display='none'; // hide Options
+			}
+		}
+{% endblock %}
+{% block content %}
+
+<form enctype='multipart/form-data' action='/request/new/' method='post'>
+<table align="center" border="1" cellspacing="1" style="border-collapse: collapse" bordercolor="#000066" width="800" cellpadding="5">
+<tr>
+	<td colspan="6" bgcolor="#B5CBEF" height="45" width="100%" bordercolor="#FFFFFF">
+		<p align="center"><b>
+		<font face='Verdana' size=4 color='#FFFFFF'><b>
+			Search
+			&nbsp;
+			</font></p>
+		<font face="Verdana" size="2" color="#000066"> </font></b>
+	</td>
+</tr>
+{% if message_list %}
+{% for message in message_list %}
+<tr>
+	<td colspan="6" bgcolor="#D6DFEF" height="16" width="100%" bordercolor="#FFFFFF">
+		<p align="center"><font size="1" color="red" face="Verdana">Message # {{ message.message_id }} - {{ message.message_code }}</font></p>
+	</td>
+</tr>
+
+	<tr>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Time Received:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.time_stamp }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">SIM #:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.sim_card_number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Provider:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.donor_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Company Flag:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.company_flag }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Port ID:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.port_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">CPR #:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.cpr }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Recipient ID</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.recipient_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Passport Number:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.passport_number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Submission ID:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.submission_id }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Phone #:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.number }}</font>
+		</td>
+	</tr>
+	<tr>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Comment:</font>
+		</td>
+		<td width="5">
+			<font size="1" color="black" face="Verdana">{{ message.comments }}</font>
+		</td>
+		<td height="5" width="5" bgcolor="#B5CBEF" bordercolor="#FFFFFF">
+			<font size="1" color="black" face="Verdana">Direction:</font>
+		</td>
+		<td>
+			<font size="1" color="black" face="Verdana">{{ message.direction }}</font>
+		</td>
+	</tr>
+<tr>
+{% endfor %}
+{% else %}
+<tr>
+	<td colspan="6" bgcolor="#D6DFEF" height="16" width="100%" bordercolor="#FFFFFF">
+		<p align="center"><font size="1" color="red" face="Verdana">No Messages Available</font></p>
+	</td>
+</tr>
+{% endif %}
+</table>
+</form>
+{% endblock %}
