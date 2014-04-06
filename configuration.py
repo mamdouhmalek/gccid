@@ -1,3 +1,5 @@
+#Configuration file
+
 import datetime
 import os
 
