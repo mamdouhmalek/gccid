@@ -1141,9 +1141,7 @@ def SetNpRequestAck(InMessage):
 	NpRequestAck.ServiceType = InMessage.ServiceType
 	NpRequestAck.MessageCode = "NpRequestAck"		# must be set to what type of message we are sending
 	NpRequestAck.Number = InMessage.Number
-	NpRequestAck.PortID = InMessage.PortID
-	#NpRequestAck.PortID = "LSCO-BTCF-20111206-00000"	# Bahaa we need to generate the port id(Mamdouh:why?)
-
+	NpRequestAck.PortID = "LSCO-BTCF-20111206-00000"	# Bahaa we need to generate the port id
 	NpRequestAck.SubmissionID = InMessage.SubmissionID
 	NpRequestAck.DonorID = InMessage.DonorID
 	NpRequestAck.RecipientID = InMessage.RecipientID

@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     (r'^$', include('npg.web.urls')),
     (r'^services/', include('npg.soap.urls')),
     (r'^request/', include('npg.web.urls')),
-    #(r'^reports/', include('npg.reports.urls')),
+    (r'^reports/', include('npg.reports.urls')),
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve',
                  {'document_root': settings.MEDIA_ROOT}),
     # Uncomment the admin/doc line below to enable admin documentation:

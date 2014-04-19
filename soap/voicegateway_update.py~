@@ -48,7 +48,7 @@ def UpdateVoiceGateway(InMessage):
 		LogInput('UpdateVoiceGateway  -  4')
 
 		LogInput('We are now at NpDeactivateBroadcast updating database:')
-		#PhoneNumber = "973"+str(InMessage.Number)
+		PhoneNumber = "973"+str(InMessage.Number)
 		SubscriptionNetworkID = InMessage.SubscriptionNetworkID
 		BlockID = InMessage.BlockID
 		LogInput('Incoming information to VoiceGateway Database with %s, %s, SubscriptionNetworkID = %s, BlockID = %s' % (PhoneNumber, PortID, SubscriptionNetworkID, BlockID))	
@@ -67,7 +67,7 @@ def UpdateVoiceGateway(InMessage):
 	LogInput('UpdateVoiceGateway  -  8')
 	if InMessage.MessageCode == "NpDeactivateBroadcast":
 		LogInput('UpdateVoiceGateway  -  9')
-		#PhoneNumber = "973"+str(InMessage.Number)
+		PhoneNumber = "973"+str(InMessage.Number)
 		#PhoneNumber = InMessage.Number
 		try:
 			handler = Number_Portability.objects.using(CustomerDataBase).get(destination=PhoneNumber)

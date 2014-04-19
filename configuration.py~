@@ -83,8 +83,8 @@ def GetConfig(request):
 	##################################
 	# Central System Settings - SUDS Connection
 	if request == "SOAP_CONNECTION":
-		#return 'TEST'
-		return 'LIVE'
+		return 'TEST'
+		#return 'LIVE'
 
 	# For Live server
 	if request == "CSL":

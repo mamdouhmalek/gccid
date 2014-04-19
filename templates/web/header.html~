@@ -241,7 +241,7 @@
 			<tr height="" valign="middle">
 				<td bgcolor="#CCCCCC" height="" width="183" bordercolor="" align="left"  valign="top">
 					<div id="topBotton">
-							<a href="/ported/" align="right" class="show_hide"><font face='Arial Black' color="black" size="2" >Ported</a>
+							<a href="/log/ported" align="right" class="show_hide"><font face='Arial Black' color="black" size="2" >Ported</a>
 					</div>
 				</td>
 				<td bgcolor="#CCCCCC" height="" width="" bordercolor="" align="center"  valign="top">
@@ -250,11 +250,11 @@
 					</div>
 						<font face='Arial Black' color="green" size="3" >Lightspeed
 				</td>
-				<td bgcolor="#CCCCCC" height="" width="183" bordercolor="" align="right"  valign="top">
+				<!--<td bgcolor="#CCCCCC" height="" width="183" bordercolor="" align="right"  valign="top">
 					<div id="topBotton">
 						<a href="/media/User_Guide.pdf" align="right" target="_blank"><font face='Arial Black' color="black" size="2" >Specifications Manual</a>
 					</div>
-				</td>
+				</td>-->
 			</tr>
 			<tr>
 				<td colspan = "3" height="0" background="/media/btn_switch-grid-on.gif">
