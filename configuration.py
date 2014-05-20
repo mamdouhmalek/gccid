@@ -1,3 +1,6 @@
+
+#Configuration file
+
 import datetime
 import os
 
@@ -17,7 +20,7 @@ def GetConfig(request):
 		return '4GTSS'
 
 	if request == "SERVER_URL":
-		return 'http://81.22.16.240'
+		return 'http://demo.4gtss.com:9999'
 
 	if request == "ROOT_DIR":
 		return '/4gtss/mount'
@@ -37,10 +40,10 @@ def GetConfig(request):
 		return 'localhost'
 
 	if request == "DEFAULT_DB_NAME":
-		return 'md_system'
+		return 'npg_system'
 
 	if request == "DEFAULT_DB_USER":
-		return 'md'
+		return 'npg'
 
 	if request == "DEFAULT_DB_PASSWORD":
 		return 'pNcKyYw3qUyP7MxR'
@@ -48,8 +51,8 @@ def GetConfig(request):
 	##################################
 	# Voice Gateway Database Settings
 	if request == "ENABLE_VOICEGATWAY_UPDATE":
-		return 'TRUE'
-		#return 'FALSE'
+		#return 'TRUE'
+		return 'FALSE'
 	
 	# Keep duplicate of voice gateway database locally 
 	if request == "ENABLE_LOCALDB_UPDATE":
@@ -57,25 +60,25 @@ def GetConfig(request):
 		return 'FALSE'
 
 	if request == "VGW_DB_NAME":
-		return 'porta-billing'
+		return 'npg_system_demo2'
 		#return 'vgwlive'
 
 	if request == "VGW_TABLE_NAME":
-		return 'Number_Portability'
+		return 'npg_vgw'
 
 	if request == "VGW_DB_HOST":
-		return 'master.lsc.com.bh'
+		return 'localhost'
 
 	if request == "VGW_DB_USER":
-		return 'npreadwrite'
+		return 'npg_demo'
 
 	if request == "VGW_DB_PASSWORD":
-		return 'ky98bEY5tmXa'
+		return 'pNcKyYw3qUyP7MxR'
 
 	##################################
 	# Operator's Settings
 	if request == "ORIGINATION_ID":
-		return 'LSCO'
+		return 'RWAB'
 
 	if request == "DESTINATION_ID":
 		return 'CSYS'
@@ -83,14 +86,14 @@ def GetConfig(request):
 	##################################
 	# Central System Settings - SUDS Connection
 	if request == "SOAP_CONNECTION":
-		#return 'TEST'
-		return 'LIVE'
+		return 'TEST'
+		#return 'LIVE'
 
 	# For Live server
 	if request == "CSL":
 		return {
 					'url' : 'https://m2m.npcs.bh/services/NpcdbService?wsdl',
-					'user' : 'soap_lsco', 
+					'user' : 'soap_rwab', 
 					'password' : 'pass_4gtss', 
 				}
 
@@ -98,7 +101,7 @@ def GetConfig(request):
 	if request == "CST":
 		return {
 					'url' : 'https://m2m.test.npcs.bh/services/NpcdbService?wsdl',
-					'user' : 'soap_lsco', 
+					'user' : 'soap_rwab', 
 					'password' : 'pass_4gtss', 
 				}
 
@@ -126,8 +129,7 @@ def GetConfig(request):
 
 	if request == "RECIPIENT_LIST":
 		return [
-					'hazim.samour@solutionsfortelecom.com',
-					'khaled.sobhy@4gtss.com',
+					'hazim.samour@solutionsfortelecom.com', 
 				]
 
 ##################################
@@ -139,8 +141,7 @@ def LogInput(NewLog):
 	month = "0" + str(now.month) if len(str(now.month)) == 1 else str(now.month)
 	day = "0" + str(now.day) if len(str(now.day)) == 1 else str(now.day)
 	
-	#dir = GetConfig("ROOT_DIR") + '/site/npg/report/' + year + "/" + month
-	dir =  '/mnp/log/' + year + "/" + month
+	dir = GetConfig("ROOT_DIR") + '/site/npg/report/' + year + "/" + month
 	
 	if not os.path.exists(dir):
 		os.makedirs(dir)
@@ -170,3 +171,4 @@ def GetTimeStamp():
 	millisecond = "00" + millisecond if len(millisecond) == 1 else millisecond
 		
 	return "%s-%s-%s %s:%s:%s,%s" % (year,month,day,hour,minute,second,millisecond)
+s
