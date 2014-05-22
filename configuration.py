@@ -1,5 +1,5 @@
 
-#Configuration file for gccid1
+#Configuration file 
 
 import datetime
 import os
