@@ -13,6 +13,7 @@ CRN = re.compile('^[0-9]{1,7}[\/][0-9]{1,2}$')
 PASN = re.compile('^([0-9A-Za-z]{5}|[0-9A-Za-z]{12})$')
 CMNT = re.compile('^[a-zA-Z0-9\-\_\+\.\s]{1,100}$')
 ##########End of patterns############################
+#new branch 
 
 class NpMessages(models.Model):
 	
